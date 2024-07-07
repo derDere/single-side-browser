@@ -1,0 +1,19 @@
+{
+  "name": "single-side-browser",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-packager . ssb --platform=win32 --arch=x64 --overwrite"
+  },
+  "author": "",
+  "license": "GNU",
+  "devDependencies": {
+    "electron": "^29.1.4",
+    "electron-packager": "^17.1.2"
+  },
+  "dependencies": {
+    "url": "^0.11.3"
+  }
+}
