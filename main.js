@@ -1,23 +1,26 @@
 const { app, BrowserWindow } = require('electron')
-const URL = require("url").URL;
+const URL = require("url").URL
 
 console.log("Starting")
 console.log(`Args Count: ${process.argv.length}`)
+console.log(`Args: ${process.argv}`)
 
 const stringIsAValidUrl = (s) => {
   try {
-    new URL(s);
-    return true;
+    new URL(s)
+    return true
   } catch (err) {
-    return false;
+    return false
   }
 };
 
 const filteredArgs = process.argv.slice(1)
+console.log(`Filtered Args Count: ${filteredArgs.length}`)
 
 for (let url of filteredArgs) {
+  console.log(`Args: ${url}`)
   if (stringIsAValidUrl(url)) {
-    console.log(`Args: ${url}`)
+    console.log(`OK: Args: ${url}`)
   }
 }
 
@@ -25,14 +28,13 @@ let createWindow = (url) => {
   const win = new BrowserWindow({
     width: 1600,
     height: 1000,
-    //icon: 'logo.ico',
+    //icon: icon,
     backgroundColor: "#fff",
     show: false,
   })
   win.on('ready-to-show', () => {
     win.maximize()
     win.show()
-    //win.webContents.setZoomFactor(zoomFactor);
   })
   win.setMenu(null)
   win.loadURL(url)
